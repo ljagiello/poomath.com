@@ -358,6 +358,7 @@ Refill dates: ${summary.refillDates}`;
 	</div>
 </header>
 
+<main>
 <div class="factbar">
 	<span class="ft-ico">💩</span>
 	<span class="ft-txt"><b>Poo fact:</b> {POO_FACTS[factIdx]}</span>
@@ -398,9 +399,11 @@ Refill dates: ${summary.refillDates}`;
 				<tbody>
 					{#each events as e, i (e.id)}
 						<tr class="evt-row">
-							<td><input class="mid" type="date" bind:value={e.date} /></td>
-							<td><input type="text" bind:value={e.label} /></td>
-							<td style="text-align:center"><input type="checkbox" bind:checked={e.imp} /></td>
+							<td><input class="mid" type="date" aria-label="Event date" bind:value={e.date} /></td>
+							<td><input type="text" aria-label="Event label" bind:value={e.label} /></td>
+							<td style="text-align:center"
+								><input type="checkbox" aria-label="Mark as key night" bind:checked={e.imp} /></td
+							>
 							<td><button class="btn-x" title="remove" onclick={() => removeEvent(i)}>✕</button></td>
 						</tr>
 					{/each}
@@ -458,7 +461,7 @@ Refill dates: ${summary.refillDates}`;
 					<div class="p-card">
 						<div class="p-l1">
 							<input class="p-name" type="text" placeholder="name" bind:value={p.name} />
-							<select class="p-gender {p.gender}" bind:value={p.gender}>
+							<select class="p-gender {p.gender}" aria-label="Gender" bind:value={p.gender}>
 								<option value="W">♀ Woman</option>
 								<option value="M">♂ Man</option>
 							</select>
@@ -821,3 +824,4 @@ Refill dates: ${summary.refillDates}`;
 		</details>
 	{/each}
 </section>
+</main>
