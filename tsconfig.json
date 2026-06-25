@@ -1,5 +1,10 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
+	// This config is intentionally self-contained instead of extending
+	// ./.svelte-kit/tsconfig.json (the usual SvelteKit pattern). Vite 8's
+	// rolldown/oxc transform can't resolve a tsconfig referenced through the
+	// dotted `.svelte-kit/` directory and fails the build with
+	// "Tsconfig not found". `svelte-kit sync` still prints a "should extend"
+	// hint — that warning is expected and safe to ignore here.
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,
@@ -9,6 +14,23 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"moduleResolution": "bundler"
-	}
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"target": "esnext",
+		"lib": ["esnext", "DOM", "DOM.Iterable"],
+		"verbatimModuleSyntax": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"paths": {
+			"$lib": ["./src/lib"],
+			"$lib/*": ["./src/lib/*"]
+		}
+	},
+	"include": [
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.svelte",
+		"vite.config.ts"
+	]
 }
