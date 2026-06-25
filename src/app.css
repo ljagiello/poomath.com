@@ -900,3 +900,33 @@ summary {
 	color: var(--ink2);
 	font: 400 15px/1.6 'Space Grotesk', sans-serif;
 }
+
+/* ---------- site footer ---------- */
+.site-footer {
+	max-width: 820px;
+	margin: 0 auto;
+	padding: 26px 16px 40px;
+	text-align: center;
+	border-top: 1px solid var(--line);
+}
+.site-footer p {
+	margin: 0;
+	color: var(--ink2);
+	font: 400 14px/1.6 'Space Grotesk', sans-serif;
+}
+.site-footer a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--ink);
+	font-weight: 600;
+	text-decoration: none;
+}
+.site-footer a:hover {
+	color: var(--burn2);
+}
+.site-footer svg {
+	width: 16px;
+	height: 16px;
+	fill: currentColor;
+}
