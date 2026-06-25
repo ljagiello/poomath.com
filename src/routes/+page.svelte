@@ -24,6 +24,25 @@
 	import { POO_FACTS } from '$lib/facts';
 	import TankChart from '$lib/components/TankChart.svelte';
 
+	/* ---------- SEO ---------- */
+	const SITE_URL = 'https://poomath.com/';
+	const OG_IMAGE = 'https://poomath.com/og.png';
+	const SEO_TITLE = 'Poo Math — Burning Man RV pump-out & water planner';
+	const SEO_DESC =
+		'Figure out how many RV gray/black pump-outs and fresh-water refills you need for Burning Man — when, and the risk around it.';
+	// Injected via {@html} because a literal <script> with JSON braces can't sit
+	// directly in Svelte markup. WebApplication schema for a free web tool.
+	const jsonLd = `<script type="application/ld+json">${JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'WebApplication',
+		name: 'Poo Math',
+		url: SITE_URL,
+		description: SEO_DESC,
+		applicationCategory: 'UtilitiesApplication',
+		operatingSystem: 'Web',
+		offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
+	})}<\/script>`;
+
 	/* ---------- rig ---------- */
 	let preset = $state(DEFAULT_PRESET);
 	let model = $state(PRESETS[DEFAULT_PRESET].label);
@@ -267,7 +286,27 @@ Refill dates: ${summary.refillDates}`;
 </script>
 
 <svelte:head>
-	<title>Poo Math — Playa RV pump-out & water planner</title>
+	<title>{SEO_TITLE}</title>
+	<meta name="description" content={SEO_DESC} />
+	<link rel="canonical" href={SITE_URL} />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Poo Math" />
+	<meta property="og:url" content={SITE_URL} />
+	<meta property="og:title" content={SEO_TITLE} />
+	<meta property="og:description" content={SEO_DESC} />
+	<meta property="og:image" content={OG_IMAGE} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={SEO_TITLE} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={SEO_TITLE} />
+	<meta name="twitter:description" content={SEO_DESC} />
+	<meta name="twitter:image" content={OG_IMAGE} />
+	<meta name="twitter:image:alt" content={SEO_TITLE} />
+
+	{@html jsonLd}
 </svelte:head>
 
 <header>
