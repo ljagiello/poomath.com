@@ -43,6 +43,40 @@
 		offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
 	})}<\/script>`;
 
+	// FAQ — rendered visibly below and emitted as FAQPage schema from this same
+	// source, so the structured data always matches the on-page content.
+	const FAQ = [
+		{
+			q: 'How much water do you need per person per day at Burning Man?',
+			a: 'Plan for roughly 6–8 gallons per person per day in an RV, and showers dominate. At Poo Math’s defaults — a 1.6 gallon-per-minute shower for about 3 minutes — one person uses 5–6 gallons of greywater from washing alone, before drinking water, dishes, and toilet flushes.'
+		},
+		{
+			q: 'How often do you need to pump out RV tanks at Burning Man?',
+			a: 'Usually every 2–4 days, set by whichever tank fills first — typically the gray tank, because showers dominate. A 35-gallon gray tank shared by 2–3 people fills in about 2–3 days. Poo Math triggers a service at 95% full and schedules pump-out trucks across build, event, and strike.'
+		},
+		{
+			q: 'Can you dump RV greywater or blackwater on the playa?',
+			a: 'No. Burning Man’s Leave No Trace rules prohibit draining any greywater or blackwater onto the playa. You must keep it in your tanks and have it removed by a licensed pump-out truck, or haul it out yourself. Dumping on the ground is a serious violation.'
+		},
+		{
+			q: 'How big are RV black and gray water tanks?',
+			a: 'Most rentals hold about 25–45 gallons each for gray and black. A mid-size travel trailer is around 35 gallons gray and 35 gallons black; compact campers can be 15–20. Poo Math includes presets for common Cruise America, El Monte, Airstream, and trailer models.'
+		},
+		{
+			q: 'How much fresh water should you bring for an RV at Burning Man?',
+			a: 'Your fresh tank rarely lasts the week, so plan refills. Fresh use roughly equals gray plus black output — about 6–8 gallons per person per day. A 45-gallon fresh tank serving two people lasts only about 3 days, so Poo Math schedules water deliveries before you run dry.'
+		}
+	];
+	const faqLd = `<script type="application/ld+json">${JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: FAQ.map((f) => ({
+			'@type': 'Question',
+			name: f.q,
+			acceptedAnswer: { '@type': 'Answer', text: f.a }
+		}))
+	})}<\/script>`;
+
 	/* ---------- rig ---------- */
 	let preset = $state(DEFAULT_PRESET);
 	let model = $state(PRESETS[DEFAULT_PRESET].label);
@@ -307,6 +341,7 @@ Refill dates: ${summary.refillDates}`;
 	<meta name="twitter:image:alt" content={SEO_TITLE} />
 
 	{@html jsonLd}
+	{@html faqLd}
 </svelte:head>
 
 <header>
@@ -776,3 +811,13 @@ Refill dates: ${summary.refillDates}`;
 		</div>
 	</div>
 </div>
+
+<section class="faq">
+	<h2>🚐 Burning Man RV water &amp; pump-out FAQ</h2>
+	{#each FAQ as item (item.q)}
+		<details class="faq-q">
+			<summary>{item.q}</summary>
+			<p>{item.a}</p>
+		</details>
+	{/each}
+</section>

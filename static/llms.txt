@@ -1,0 +1,15 @@
+# Poo Math
+
+> A free web calculator that estimates how many gray/black tank pump-outs and fresh-water refills an RV needs at Burning Man — how much, when, and the risk of running out.
+
+Poo Math is a single-page planner for Burning Man RV and trailer camps. You enter your rig (or pick a preset for common Cruise America, El Monte, Airstream, and trailer models), your crew (women and men use water differently), and your build/event/strike dates. It simulates daily tank levels, then schedules pump-out trucks and water deliveries with a Monte Carlo estimate of pump-out risk.
+
+## Key facts
+- Plan for roughly 6–8 gallons of water per person per day; showers are the biggest variable.
+- Typical RV gray and black holding tanks are about 25–45 gallons each.
+- Tanks are serviced at ~95% full — usually every 2–4 days, driven by the gray (shower) tank.
+- Leave No Trace: greywater and blackwater may never be dumped on the playa; they must be pumped out or hauled away.
+
+## Links
+- [Poo Math planner](https://poomath.com/): the calculator itself
+- [Sitemap](https://poomath.com/sitemap.xml): all indexable URLs
