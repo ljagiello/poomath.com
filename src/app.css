@@ -248,7 +248,9 @@ input[type='date'] {
 	color-scheme: dark;
 }
 input[type='checkbox'] {
-	width: auto;
+	/* 24x24 to satisfy WCAG 2.2 target-size (2.5.8) */
+	width: 24px;
+	height: 24px;
 	accent-color: var(--burn);
 }
 select {
@@ -338,6 +340,15 @@ button {
 .btn-ghost:hover {
 	background: #322444;
 	color: var(--ink);
+}
+/* WCAG 2.2 target-size (2.5.8): icon buttons need a >=24x24 hit area */
+.btn-x,
+.btn-mv {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	min-height: 24px;
 }
 .btn-x {
 	background: transparent;
@@ -528,7 +539,8 @@ canvas {
 }
 .ph.Strike {
 	background: rgba(154, 138, 168, 0.18);
-	color: var(--strike);
+	/* Lightened from var(--strike) to clear WCAG AA 4.5:1 on the chip bg */
+	color: #aa9cc0;
 }
 .ev .tank {
 	font-size: 11.5px;
