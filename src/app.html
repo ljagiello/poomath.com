@@ -9,6 +9,26 @@
 			content="Poo Math — figure out how many RV gray/black pump-outs and fresh-water refills you need for Burning Man, when, and the risk around it."
 		/>
 		<meta name="theme-color" content="#15111c" />
+		<!-- Google Analytics (GA4). Guarded to the production host so local dev
+		     and Vercel preview deploys don't pollute the stats. -->
+		<script>
+			if (
+				location.hostname === 'poomath.com' ||
+				location.hostname.endsWith('.poomath.com')
+			) {
+				window.dataLayer = window.dataLayer || [];
+				window.gtag = function () {
+					dataLayer.push(arguments);
+				};
+				gtag('js', new Date());
+				gtag('config', 'G-66CSJLP1ZL');
+
+				const s = document.createElement('script');
+				s.async = true;
+				s.src = 'https://www.googletagmanager.com/gtag/js?id=G-66CSJLP1ZL';
+				document.head.appendChild(s);
+			}
+		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
