@@ -1,0 +1,15 @@
+{
+	"name": "Poo Math — Burning Man RV pump-out & water planner",
+	"short_name": "Poo Math",
+	"description": "Figure out how many RV gray/black pump-outs and fresh-water refills you need for Burning Man — when, and the risk around it.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#15111c",
+	"theme_color": "#15111c",
+	"icons": [
+		{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+		{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+		{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+	]
+}
