@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+# Poo Math is a public planner — let every crawler index everything.
+User-agent: *
+Allow: /
+
+Sitemap: https://poomath.com/sitemap.xml
