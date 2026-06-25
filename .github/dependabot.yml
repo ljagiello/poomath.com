@@ -1,0 +1,38 @@
+version: 2
+updates:
+  # JavaScript / SvelteKit dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+    groups:
+      # Batch the SvelteKit / Vite toolchain into a single PR to cut noise.
+      svelte-toolchain:
+        patterns:
+          - "@sveltejs/*"
+          - "svelte"
+          - "svelte-check"
+          - "vite"
+      types:
+        patterns:
+          - "typescript"
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions workflow dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    labels:
+      - "dependencies"
+      - "github-actions"
