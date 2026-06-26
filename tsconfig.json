@@ -24,13 +24,19 @@
 		"paths": {
 			"$lib": ["./src/lib"],
 			"$lib/*": ["./src/lib/*"]
-		}
+		},
+		// Overlay the SvelteKit-generated types dir so route `./$types` imports
+		// resolve (normally provided by the .svelte-kit/tsconfig.json we don't
+		// extend). These are type-only imports, erased before the rolldown build.
+		"rootDirs": [".", "./.svelte-kit/types"]
 	},
 	"include": [
 		"src/**/*.js",
 		"src/**/*.ts",
 		"src/**/*.d.ts",
 		"src/**/*.svelte",
-		"vite.config.ts"
+		"vite.config.ts",
+		".svelte-kit/ambient.d.ts",
+		".svelte-kit/types/**/$types.d.ts"
 	]
 }

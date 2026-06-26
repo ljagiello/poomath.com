@@ -40,6 +40,15 @@
 		description: SEO_DESC,
 		applicationCategory: 'UtilitiesApplication',
 		operatingSystem: 'Web',
+		dateModified: '2026-06-25',
+		creator: { '@type': 'Organization', name: 'Poo Math', url: SITE_URL },
+		featureList: [
+			'Per-person water modeling (women and men use water differently)',
+			'Gray/black holding-tank pump-out scheduling',
+			'Fresh-water refill scheduling',
+			'Monte Carlo pump-out risk estimate',
+			'Presets for common Cruise America, El Monte, Airstream, and trailer rigs'
+		],
 		offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
 	})}<\/script>`;
 
@@ -256,6 +265,13 @@ Refill dates: ${summary.refillDates}`;
 		model = p.label;
 	}
 	const markCustom = () => (preset = 'custom');
+
+	// Deep link from the /rv/* pages: /?rv=<preset-key> opens the planner prefilled
+	// for that rig. Runs once on mount (client only — does not affect prerender).
+	$effect(() => {
+		const rv = new URLSearchParams(window.location.search).get('rv');
+		if (rv && PRESETS[rv] && rv !== 'custom') selectPreset(rv);
+	});
 
 	function addPerson() {
 		people.push({ id: crypto.randomUUID(), name: '', gender: 'W', arr: gatesISO, dep: closeISO, use: 1 });
