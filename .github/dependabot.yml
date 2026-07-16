@@ -10,6 +10,12 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
+    ignore:
+      # TypeScript 7 replaced the classic compiler API with new ./unstable/*
+      # exports; @sveltejs/kit and svelte-check don't support it yet (see #24).
+      - dependency-name: "typescript"
+        update-types:
+          - "version-update:semver-major"
     groups:
       # Batch the SvelteKit / Vite toolchain into a single PR to cut noise.
       svelte-toolchain:
