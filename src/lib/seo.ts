@@ -1,6 +1,6 @@
 // Shared SEO constants + programmatic-page data (RV model specs + guides).
 // Used by the home page, the /rv and /guides routes, and the dynamic sitemap.
-import { PRESETS } from '$lib/model';
+import { PRESETS } from '#lib/model.js';
 
 export const SITE_URL = 'https://poomath.com';
 export const SITE_NAME = 'Poo Math';

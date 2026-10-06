@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fmt, PH_COL, PH_DOT, type Phase, type Sim } from '$lib/model';
+	import { fmt, PH_COL, PH_DOT, type Phase, type Sim } from '#lib/model.js';
 	import type { Attachment } from 'svelte/attachments';
 
 	let { sim }: { sim: Sim | null } = $props();

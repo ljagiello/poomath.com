@@ -12,8 +12,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^6.3.4",
-    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/adapter-vercel": "^7.0.0",
+    "@sveltejs/kit": "^3.0.0",
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "svelte": "^5.57.1",
     "svelte-check": "^4.7.6",
@@ -21,10 +21,19 @@
     "vite": "^8.3.2"
   },
   "overrides": {
-    "cookie": "^0.7.0"
+    "@vercel/analytics": {
+      "@sveltejs/kit": "$@sveltejs/kit"
+    },
+    "@vercel/speed-insights": {
+      "@sveltejs/kit": "$@sveltejs/kit"
+    }
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0"
+  },
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*"
   }
 }

@@ -1,4 +1,4 @@
-import { SITE_URL, RV_PAGES, GUIDES, UPDATED_ISO } from '$lib/seo';
+import { SITE_URL, RV_PAGES, GUIDES, UPDATED_ISO } from '#lib/seo.js';
 
 export const prerender = true;
 

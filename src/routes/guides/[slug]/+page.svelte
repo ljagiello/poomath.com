@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { SITE_URL, SITE_NAME, OG_IMAGE, UPDATED_ISO, ldScript, guideBySlug } from '$lib/seo';
-	import type { Guide } from '$lib/seo';
+	import { SITE_URL, SITE_NAME, OG_IMAGE, UPDATED_ISO, ldScript, guideBySlug } from '#lib/seo.js';
+	import type { Guide } from '#lib/seo.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
