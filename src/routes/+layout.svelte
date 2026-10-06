@@ -1,11 +1,37 @@
 <script lang="ts">
 	import '../app.css';
-	import { dev } from '$app/environment';
-	import { injectAnalytics } from '@vercel/analytics/sveltekit';
-	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	import { dev } from '$app/env';
+	import { page } from '$app/state';
+	import { inject, pageview } from '@vercel/analytics';
+	import { injectSpeedInsights } from '@vercel/speed-insights';
 
-	injectAnalytics({ mode: dev ? 'development' : 'production' });
-	injectSpeedInsights();
+	// The packages' `/sveltekit` entrypoints still read `$app/stores`, which
+	// SvelteKit 3 removed (subscribing throws in the browser). Use the generic
+	// API and report routes from `$app/state` instead, mirroring those wrappers.
+	// Both inject calls are no-ops outside the browser.
+	const basePath = import.meta.env.VITE_VERCEL_OBSERVABILITY_BASEPATH;
+	const clientConfig = import.meta.env.VITE_VERCEL_OBSERVABILITY_CLIENT_CONFIG;
+
+	inject(
+		{
+			mode: dev ? 'development' : 'production',
+			framework: 'sveltekit',
+			disableAutoTrack: true,
+			basePath
+		},
+		clientConfig
+	);
+	const speedInsights = injectSpeedInsights(
+		{ route: page.route.id, framework: 'sveltekit', basePath },
+		clientConfig
+	);
+
+	$effect(() => {
+		const route = page.route.id;
+		if (!route) return;
+		pageview({ route, path: page.url.pathname });
+		speedInsights?.setRoute(route);
+	});
 
 	let { children } = $props();
 </script>

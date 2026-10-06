@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { RV_PAGES, rvBySlug } from '$lib/seo';
+import { RV_PAGES, rvBySlug } from '#lib/seo.js';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const prerender = true;

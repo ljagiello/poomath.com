@@ -19,10 +19,10 @@
 		type KeyEvent,
 		type SimEvent,
 		type Marker
-	} from '$lib/model';
-	import { monteCarlo, weatherRisk, WEATHER } from '$lib/montecarlo';
-	import { POO_FACTS } from '$lib/facts';
-	import TankChart from '$lib/components/TankChart.svelte';
+	} from '#lib/model.js';
+	import { monteCarlo, weatherRisk, WEATHER } from '#lib/montecarlo.js';
+	import { POO_FACTS } from '#lib/facts.js';
+	import TankChart from '#lib/components/TankChart.svelte';
 
 	/* ---------- SEO ---------- */
 	const SITE_URL = 'https://poomath.com/';

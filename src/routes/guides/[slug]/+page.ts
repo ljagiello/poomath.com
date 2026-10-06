@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { GUIDES, guideBySlug } from '$lib/seo';
+import { GUIDES, guideBySlug } from '#lib/seo.js';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const prerender = true;

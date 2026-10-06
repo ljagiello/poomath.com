@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SITE_URL, SITE_NAME, OG_IMAGE, ldScript, GUIDES } from '$lib/seo';
+	import { SITE_URL, SITE_NAME, OG_IMAGE, ldScript, GUIDES } from '#lib/seo.js';
 
 	const url = `${SITE_URL}/guides`;
 	const title = 'Burning Man RV water & pump-out guides';

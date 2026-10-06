@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SITE_URL, SITE_NAME, OG_IMAGE, ldScript, RV_PAGES } from '$lib/seo';
+	import { SITE_URL, SITE_NAME, OG_IMAGE, ldScript, RV_PAGES } from '#lib/seo.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
