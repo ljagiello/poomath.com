@@ -58,3 +58,5 @@ ships as static assets with no serverless functions.
 Defaults scale metered residential water data down to playa conservation (no gray
 dumping → every gallon in is waste you pump out). Sources are cited inline under
 the "Data behind these numbers" and weather-history disclosures in the app.
+
+Created by [Lukasz Jagiello](https://lukasz.jagiello.org).
