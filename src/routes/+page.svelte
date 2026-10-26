@@ -41,7 +41,13 @@
 		applicationCategory: 'UtilitiesApplication',
 		operatingSystem: 'Web',
 		dateModified: '2026-06-25',
-		creator: { '@type': 'Organization', name: 'Poo Math', url: SITE_URL },
+		author: {
+			'@type': 'Person',
+			name: 'Lukasz Jagiello',
+			url: 'https://lukasz.jagiello.org',
+			sameAs: ['https://github.com/ljagiello']
+		},
+		publisher: { '@type': 'Organization', name: 'Poo Math', url: SITE_URL },
 		featureList: [
 			'Per-person water modeling (women and men use water differently)',
 			'Gray/black holding-tank pump-out scheduling',
