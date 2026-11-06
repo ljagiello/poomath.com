@@ -59,4 +59,4 @@ Defaults scale metered residential water data down to playa conservation (no gra
 dumping → every gallon in is waste you pump out). Sources are cited inline under
 the "Data behind these numbers" and weather-history disclosures in the app.
 
-Created by [Lukasz Jagiello](https://lukasz.jagiello.org).
+Created by [Lukasz Jagiello](https://lukasz.jagiello.org). Write-up: [lukasz.jagiello.org/projects/poo-math](https://lukasz.jagiello.org/projects/poo-math).
