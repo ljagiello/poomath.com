@@ -52,5 +52,5 @@
 			GitHub
 		</a>
 	</nav>
-	<p>Poo Math by <a href="https://lukasz.jagiello.org" target="_blank" rel="author noopener">Lukasz Jagiello</a> · open source · updated for Burning Man 2026</p>
+	<p>Poo Math by <a href="https://lukasz.jagiello.org" target="_blank" rel="author noopener">Lukasz Jagiello</a> · open source · updated for Burning Man 2026 · <a href="https://lukasz.jagiello.org/projects/poo-math" target="_blank" rel="noopener">write-up</a></p>
 </footer>
